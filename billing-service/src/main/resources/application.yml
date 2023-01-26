@@ -1,0 +1,24 @@
+server:
+  port: 9095
+spring:
+  application:
+    name: billing-service
+  datasource:
+    url: jdbc:h2:mem:billing-db
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/billing-realm
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka
